@@ -6,14 +6,16 @@ type Props = {
   handleClose: () => void
 }
 
-export const InfoModal = ({ isOpen, handleClose }: Props) => {
+export const HardModeModal = ({ isOpen, handleClose }: Props) => {
   return (
     <BaseModal title="كيفية اللعب" isOpen={isOpen} handleClose={handleClose}>
-      <p className="text-sm text-gray-500 dark:text-gray-300">
-        خمن الكلمة في 6 محاولات. بعد كل تخمين ، سيتغير لون المربعات لإظهار مدى
-        قرب تخمينك من الكلمة الصحيح.
+      <p className="py-2 text-sm text-gray-500 dark:text-gray-300">
+        تمّ تفعيل &nbsp;<b>المستوى الصعب</b>،&nbsp;بإمكانك تعطيله متى شئت!
       </p>
-
+      <p className="text-sm text-gray-500 dark:text-gray-300">
+        في هذا المستوى يجب أن تستخدم جميع التلميحات التي حصلت عليها في تخمينك
+        القادم:
+      </p>
       <div className="mb-1 mt-4 flex justify-center">
         <Cell
           isRevealing={true}
@@ -27,7 +29,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="م" isCompleted={true} />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        الحرف الألف موجود في الكلمة وفي المكان الصحيح.
+        يجب أن تستخدم حرف الألف في المربع الأول.
       </p>
 
       <div className="mb-1 mt-4 flex justify-center">
@@ -43,28 +45,34 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="ث" isCompleted={true} />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        الحرف الدال موجود في الكلمة ولكن في المكان الخطأ.
+        يجب أن تستخدم حرف الدال في مكان ما.
       </p>
 
       <div className="mb-1 mt-4 flex justify-center">
         <Cell value="ج" isCompleted={true} />
         <Cell value="س" isCompleted={true} />
-        <Cell value="ي" isCompleted={true} />
-        <Cell isRevealing={true} isCompleted={true} value="م" status="absent" />
-        <Cell value="ة" isCompleted={true} />
+        <Cell
+          value="ي"
+          isRevealing={true}
+          isCompleted={true}
+          status="correct"
+        />
+        <Cell
+          isRevealing={true}
+          isCompleted={true}
+          value="م"
+          status="present"
+        />
+        <Cell
+          value="ة"
+          isRevealing={true}
+          isCompleted={true}
+          status="correct"
+        />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        الحرف الميم ليس في الكلمة في أي مكان.
-      </p>
-
-      <p className="mt-6 text-sm italic text-gray-500 dark:text-gray-300">
-        هذه نسخة مفتوحة المصدر من لعبة التخمين التي نعرفها جميعًا حب -{' '}
-        <a
-          href="https://github.com/cwackerfuss/react-wordle"
-          className="font-bold underline"
-        >
-          تحقق من الكود هنا
-        </a>{' '}
+        يجب أن تستخدم حرف الياء في المربع الثالث، وحرف التاء المربوطة في المربع
+        الأخير، وحرف الميم في مكان ما.
       </p>
     </BaseModal>
   )

@@ -10,10 +10,12 @@ import { AlertContainer } from './components/alerts/AlertContainer'
 import { Grid } from './components/grid/Grid'
 import { Keyboard } from './components/keyboard/Keyboard'
 import { DatePickerModal } from './components/modals/DatePickerModal'
+import { HardModeModal } from './components/modals/HardModeModal'
 import { InfoModal } from './components/modals/InfoModal'
 import { MigrateStatsModal } from './components/modals/MigrateStatsModal'
 import { SettingsModal } from './components/modals/SettingsModal'
 import { StatsModal } from './components/modals/StatsModal'
+import { EndStatOpen } from './components/modals/StatsModalt'
 import { Navbar } from './components/navbar/Navbar'
 import {
   DATE_LOCALE,
@@ -66,7 +68,9 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState('')
   const [isGameWon, setIsGameWon] = useState(false)
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false)
+  const [isHardModeModal, setIsHardModeModal] = useState(false)
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false)
+  const [isEndStatOpen, setIsEndStatOpen] = useState(false)
   const [isDatePickerModalOpen, setIsDatePickerModalOpen] = useState(false)
   const [isMigrateStatsModalOpen, setIsMigrateStatsModalOpen] = useState(false)
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false)
@@ -150,6 +154,9 @@ function App() {
   const handleHardMode = (isHard: boolean) => {
     if (guesses.length === 0 || localStorage.getItem('gameMode') === 'hard') {
       setIsHardMode(isHard)
+      setTimeout(() => {
+        setIsHardModeModal(isHard)
+      }, WELCOME_INFO_MODAL_MS)
       localStorage.setItem('gameMode', isHard ? 'hard' : 'normal')
     } else {
       showErrorAlert(HARD_MODE_ALERT_MESSAGE)
@@ -177,13 +184,13 @@ function App() {
 
       showSuccessAlert(winMessage, {
         delayMs,
-        onClose: () => setIsStatsModalOpen(true),
+        onClose: () => setIsEndStatOpen(true),
       })
     }
 
     if (isGameLost) {
       setTimeout(() => {
-        setIsStatsModalOpen(true)
+        setIsEndStatOpen(true)
       }, (solution.length + 1) * REVEAL_TIME_MS)
     }
   }, [isGameWon, isGameLost, showSuccessAlert])
@@ -308,9 +315,37 @@ function App() {
             guesses={guesses}
             isRevealing={isRevealing}
           />
+          <EndStatOpen
+            isOpen={isEndStatOpen}
+            handleClose={() => setIsEndStatOpen(false)}
+            solution={solution}
+            guesses={guesses}
+            gameStats={stats}
+            isLatestGame={isLatestGame}
+            isGameLost={isGameLost}
+            isGameWon={isGameWon}
+            handleShareToClipboard={() => showSuccessAlert(GAME_COPIED_MESSAGE)}
+            handleShareFailure={() =>
+              showErrorAlert(SHARE_FAILURE_TEXT, {
+                durationMs: LONG_ALERT_TIME_MS,
+              })
+            }
+            handleMigrateStatsButton={() => {
+              setIsStatsModalOpen(false)
+              setIsMigrateStatsModalOpen(true)
+            }}
+            isHardMode={isHardMode}
+            isDarkMode={isDarkMode}
+            isHighContrastMode={isHighContrastMode}
+            numberOfGuessesMade={guesses.length}
+          ></EndStatOpen>
           <InfoModal
             isOpen={isInfoModalOpen}
             handleClose={() => setIsInfoModalOpen(false)}
+          />
+          <HardModeModal
+            isOpen={isHardModeModal}
+            handleClose={() => setIsHardModeModal(false)}
           />
           <StatsModal
             isOpen={isStatsModalOpen}

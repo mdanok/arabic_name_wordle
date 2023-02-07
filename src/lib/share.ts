@@ -10,6 +10,22 @@ const parser = new UAParser()
 const browser = parser.getBrowser()
 const device = parser.getDevice()
 
+export const getText = (
+  solution: string,
+  guesses: string[],
+  lost: boolean,
+  isHardMode: boolean,
+  isDarkMode: boolean,
+  isHighContrastMode: boolean
+) => {
+  const textToShare = generateEmojiGrid(
+    solution,
+    guesses,
+    getEmojiTiles(isDarkMode, isHighContrastMode)
+  )
+  return textToShare
+}
+
 export const shareStatus = (
   solution: string,
   guesses: string[],
@@ -80,7 +96,7 @@ export const generateEmojiGrid = (
               return tiles[2]
           }
         })
-        .join('')
+        .join(' ')
     })
     .join('\n')
 }

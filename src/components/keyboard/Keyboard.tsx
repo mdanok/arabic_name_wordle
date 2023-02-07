@@ -25,9 +25,9 @@ export const Keyboard = ({
   const charStatuses = getStatuses(solution, guesses)
 
   const onClick = (value: string) => {
-    if (value === 'ENTER') {
+    if (value === '↵') {
       onEnter()
-    } else if (value === 'DELETE') {
+    } else if (value === 'مسح') {
       onDelete()
     } else {
       onChar(value)
@@ -43,7 +43,16 @@ export const Keyboard = ({
       } else {
         const key = localeAwareUpperCase(e.key)
         // TODO: check this test if the range works with non-english letters
-        if (key.length === 1 && key >= 'A' && key <= 'Z') {
+        if (
+          (key.length === 1 && key !== 'ـ' && key >= 'ا' && key <= 'ي') ||
+          key === 'ئ' ||
+          key === 'ء' ||
+          key === 'أ' ||
+          key === 'ء' ||
+          key === 'ؤ' ||
+          key === 'آ' ||
+          key === 'إ'
+        ) {
           onChar(key)
         }
       }
@@ -57,7 +66,7 @@ export const Keyboard = ({
   return (
     <div>
       <div className="mb-1 flex justify-center">
-        {['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'].map((key) => (
+        {['آ', 'أ', 'إ', 'ئ', 'ؤ', 'ئ'].map((key) => (
           <Key
             value={key}
             key={key}
@@ -68,7 +77,18 @@ export const Keyboard = ({
         ))}
       </div>
       <div className="mb-1 flex justify-center">
-        {['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'].map((key) => (
+        {['ج', 'ح', 'خ', 'ه', 'ع', 'غ', 'ف', 'ق', 'ث', 'ص', 'ض'].map((key) => (
+          <Key
+            value={key}
+            key={key}
+            onClick={onClick}
+            status={charStatuses[key]}
+            isRevealing={isRevealing}
+          />
+        ))}
+      </div>
+      <div className="mb-1 flex justify-center">
+        {['ط', 'ك', 'م', 'ن', 'ت', 'ا', 'ل', 'ب', 'ي', 'س', 'ش'].map((key) => (
           <Key
             value={key}
             key={key}
@@ -79,10 +99,17 @@ export const Keyboard = ({
         ))}
       </div>
       <div className="flex justify-center">
-        <Key width={65.4} value="ENTER" onClick={onClick}>
-          {ENTER_TEXT}
+        <Key
+          width={65.4}
+          color="white"
+          bgcolor="rgb(220, 53, 69)"
+          value="مسح"
+          onClick={onClick}
+        >
+          {DELETE_TEXT}
         </Key>
-        {['Z', 'X', 'C', 'V', 'B', 'N', 'M'].map((key) => (
+
+        {['د', 'ظ', 'ز', 'و', 'ة', 'ى', 'ر', 'ذ'].map((key) => (
           <Key
             value={key}
             key={key}
@@ -91,8 +118,14 @@ export const Keyboard = ({
             isRevealing={isRevealing}
           />
         ))}
-        <Key width={65.4} value="DELETE" onClick={onClick}>
-          {DELETE_TEXT}
+        <Key
+          width={65.4}
+          color="white"
+          bgcolor="rgb(0, 123, 255)"
+          value="↵"
+          onClick={onClick}
+        >
+          {ENTER_TEXT}
         </Key>
       </div>
     </div>

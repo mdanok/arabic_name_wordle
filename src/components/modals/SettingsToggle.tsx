@@ -29,7 +29,7 @@ export const SettingsToggle = ({
   return (
     <>
       <div className="flex justify-between gap-4 py-3">
-        <div className="mt-2 text-left text-gray-500 dark:text-gray-300">
+        <div className="mt-2 text-right text-gray-500 dark:text-gray-300">
           <p className="leading-none">{settingName}</p>
           {description && (
             <p className="mt-1 text-xs text-gray-500 dark:text-gray-300">
@@ -37,7 +37,11 @@ export const SettingsToggle = ({
             </p>
           )}
         </div>
-        <div className={toggleHolder} onClick={() => handleFlag(!flag)}>
+        <div
+          dir="ltr"
+          className={toggleHolder}
+          onClick={() => handleFlag(!flag)}
+        >
           <div className={toggleButton} />
         </div>
       </div>
