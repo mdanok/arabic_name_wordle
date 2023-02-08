@@ -77,8 +77,15 @@ export const StatsModal = ({
       isOpen={isOpen}
       handleClose={handleClose}
     >
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+      </style>
       <StatBar gameStats={gameStats} />
-      <h4 className="text-lg font-medium leading-6 text-gray-900 dark:text-gray-100">
+      <h4
+        style={{ fontFamily: 'Almarai, sans-serif' }}
+        className="text-lg font-medium leading-6 text-gray-900 dark:text-gray-100"
+      >
         {GUESS_DISTRIBUTION_TEXT}
       </h4>
       <Histogram
@@ -89,7 +96,10 @@ export const StatsModal = ({
       />
       {(isGameLost || isGameWon) && (
         <div className="mt-5 columns-2 items-center items-stretch justify-center text-center dark:text-white sm:mt-6">
-          <div className="inline-block w-full text-left">
+          <div
+            style={{ fontFamily: 'Almarai, sans-serif' }}
+            className="inline-block w-full text-left"
+          >
             {(!ENABLE_ARCHIVED_GAMES || isLatestGame) && (
               <div>
                 <h5>{NEW_WORD_TEXT}</h5>
@@ -115,6 +125,7 @@ export const StatsModal = ({
           </div>
           <div>
             <button
+              style={{ fontFamily: 'Almarai, sans-serif' }}
               type="button"
               className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-center text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-base"
               onClick={() => {
@@ -137,7 +148,7 @@ export const StatsModal = ({
         </div>
       )}
       {ENABLE_MIGRATE_STATS && (
-        <div>
+        <div style={{ fontFamily: 'Almarai, sans-serif' }}>
           <hr className="mt-4 -mb-4 border-gray-500" />
           <MigrationIntro handleMigrateStatsButton={handleMigrateStatsButton} />
         </div>

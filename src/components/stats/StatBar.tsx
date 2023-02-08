@@ -27,7 +27,10 @@ const StatItem = ({
 
 export const StatBar = ({ gameStats }: Props) => {
   return (
-    <div className="my-2 flex justify-center">
+    <div
+      style={{ fontFamily: 'Almarai, sans-serif' }}
+      className="my-2 flex justify-center text-xs"
+    >
       <StatItem label={TOTAL_TRIES_TEXT} value={gameStats.totalGames} />
       <StatItem label={SUCCESS_RATE_TEXT} value={`${gameStats.successRate}%`} />
       <StatItem label={CURRENT_STREAK_TEXT} value={gameStats.currentStreak} />

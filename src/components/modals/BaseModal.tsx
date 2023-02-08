@@ -17,6 +17,10 @@ export const BaseModal = ({ title, children, isOpen, handleClose }: Props) => {
         className="fixed inset-0 z-10 overflow-y-auto"
         onClose={handleClose}
       >
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+        </style>
         <div className="flex min-h-full items-center justify-center py-10 px-4 text-center sm:p-0">
           <Transition.Child
             as={Fragment}
@@ -53,7 +57,14 @@ export const BaseModal = ({ title, children, isOpen, handleClose }: Props) => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900 dark:text-gray-100"
                   >
-                    {title}
+                    <span
+                      style={{
+                        fontFamily: 'Almarai, sans-serif',
+                        fontWeight: '700',
+                      }}
+                    >
+                      {title}
+                    </span>
                   </Dialog.Title>
                   <div className="mt-2">{children}</div>
                 </div>

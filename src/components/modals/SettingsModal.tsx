@@ -27,8 +27,15 @@ export const SettingsModal = ({
   handleHighContrastMode,
 }: Props) => {
   return (
-    <BaseModal title="Settings" isOpen={isOpen} handleClose={handleClose}>
-      <div className="mt-2 flex flex-col divide-y">
+    <BaseModal title="الأعدادات" isOpen={isOpen} handleClose={handleClose}>
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+      </style>
+      <div
+        style={{ fontFamily: 'Almarai, sans-serif' }}
+        className="mt-2 flex flex-col divide-y"
+      >
         <SettingsToggle
           settingName="المستوى الصعب"
           flag={isHardMode}
@@ -44,7 +51,7 @@ export const SettingsModal = ({
           settingName="وضع التباين العالي"
           flag={isHighContrastMode}
           handleFlag={handleHighContrastMode}
-          description={HIGH_CONTRAST_MODE_DESCRIPTION}
+          /*description={HIGH_CONTRAST_MODE_DESCRIPTION}*/
         />
       </div>
     </BaseModal>

@@ -53,9 +53,9 @@ export const Key = ({
     width: `${width}px`,
     backgroundColor: `${bgcolor}`,
     color: `${color}`,
-    fontSize: '20px',
+    fontSize: '24px',
     fontWeight: 'bold',
-    height: '54px',
+    height: '58px',
   }
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {

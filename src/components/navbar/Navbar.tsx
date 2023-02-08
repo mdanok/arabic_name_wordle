@@ -22,31 +22,41 @@ export const Navbar = ({
   setIsSettingsModalOpen,
 }: Props) => {
   return (
-    <div className="navbar">
-      <div className="navbar-content px-5 short:h-auto">
-        <div className="flex">
-          <InformationCircleIcon
-            className="h-6 w-6 cursor-pointer dark:stroke-white"
-            onClick={() => setIsInfoModalOpen(true)}
+    <div
+      style={{ width: '18rem' }}
+      className="mx-auto mt-2 mb-4 flex items-center"
+    >
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
+      </style>
+      <p
+        style={{ fontFamily: 'Amiri Quran, serif', fontSize: '1.50rem' }}
+        className="grow dark:text-white"
+      >
+        {GAME_TITLE}
+      </p>
+      <div className="flex">
+        <CogIcon
+          className="h-6 w-6 cursor-pointer dark:stroke-white"
+          onClick={() => setIsSettingsModalOpen(true)}
+        />
+        <ChartBarIcon
+          className="mr-0 h-6 w-6 cursor-pointer dark:stroke-white"
+          onClick={() => setIsStatsModalOpen(true)}
+        />
+      </div>
+      <div className="flex">
+        <InformationCircleIcon
+          className="h-6 w-6 cursor-pointer dark:stroke-white"
+          onClick={() => setIsInfoModalOpen(true)}
+        />
+        {ENABLE_ARCHIVED_GAMES && (
+          <CalendarIcon
+            className="ml-3 h-6 w-6 cursor-pointer dark:stroke-white"
+            onClick={() => setIsDatePickerModalOpen(true)}
           />
-          {ENABLE_ARCHIVED_GAMES && (
-            <CalendarIcon
-              className="ml-3 h-6 w-6 cursor-pointer dark:stroke-white"
-              onClick={() => setIsDatePickerModalOpen(true)}
-            />
-          )}
-        </div>
-        <p className="text-xl font-bold dark:text-white">{GAME_TITLE}</p>
-        <div className="right-icons">
-          <ChartBarIcon
-            className="mr-3 h-6 w-6 cursor-pointer dark:stroke-white"
-            onClick={() => setIsStatsModalOpen(true)}
-          />
-          <CogIcon
-            className="h-6 w-6 cursor-pointer dark:stroke-white"
-            onClick={() => setIsSettingsModalOpen(true)}
-          />
-        </div>
+        )}
       </div>
       <hr></hr>
     </div>

@@ -65,6 +65,12 @@ export const EndStatOpen = ({
     isDarkMode,
     isHighContrastMode
   ).split('\n')
+  var title
+  if (isGameWon) {
+    title = 'أحسنت صنعًا'
+  } else {
+    title = 'محاولة جيدة'
+  }
   var final = guessesob.map((number) => (
     <div className="mb-1 flex justify-center">
       {number.split(' ').map((numbers) => (
@@ -107,13 +113,43 @@ export const EndStatOpen = ({
     )
   }
   return (
-    <BaseModal title={'أحسنت صنعًا'} isOpen={isOpen} handleClose={handleClose}>
+    <BaseModal title={title} isOpen={isOpen} handleClose={handleClose}>
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+      </style>
       <div className="mx-auto flex h-12 w-12 items-center justify-center text-4xl">
-        {isHardMode ? '🥇' : '🥈'}
+        {isHardMode && isGameWon && '🥇'}
+        {!isHardMode && isGameWon && '🥈'}
+        {!isHardMode && isGameLost && (
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+              className="h-6 w-6 text-red-600"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </div>
+        )}
       </div>
-      {!isHardMode && (
-        <div className="mt-3 text-center sm:mt-5">
-          <div className="mt-3 text-sm text-slate-500 dark:text-gray-100">
+      {!isHardMode && isGameWon && (
+        <div
+          style={{ fontFamily: 'Almarai, sans-serif' }}
+          className="mt-3 text-center sm:mt-5"
+        >
+          <div
+            style={{ fontFamily: 'Almarai, sans-serif' }}
+            className="mt-3 text-sm text-slate-500 dark:text-gray-100"
+          >
             فعّل المستوى الصعب في نافذة الإعدادات
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -140,23 +176,37 @@ export const EndStatOpen = ({
           </div>
         </div>
       )}
+      {!isHardMode && isGameLost && (
+        <p
+          style={{ fontFamily: 'Almarai, sans-serif' }}
+          className="mb-2 text-sm text-gray-900 dark:text-gray-100"
+        >
+          حظاً أوفر في المرة القادمة!
+        </p>
+      )}
       <h3 className="mt-2 text-lg font-medium leading-6 text-gray-900">
-        <button className="inline-flex justify-center rounded-md border border-transparent bg-slate-100 p-1 text-base text-slate-900  shadow-sm sm:text-sm">
+        <button
+          style={{ fontFamily: 'Almarai, sans-serif' }}
+          className="inline-flex justify-center rounded-md border border-transparent bg-slate-100 p-1 text-sm text-slate-900  shadow-sm sm:text-sm"
+        >
           <a
+            style={{ fontFamily: 'Almarai, sans-serif' }}
             href={'https://www.almaany.com/ar/dict/ar-ar/' + solution}
             target="_blank"
             rel="noreferrer"
           >
             📖&nbsp;&nbsp;&nbsp;تعرّف على معنى&nbsp;{' '}
-            <b>
-              <i>{solution}</i>
-            </b>
+            <i style={{ fontWeight: '700' }}>{solution}</i>
           </a>
         </button>
       </h3>
       <h3 className="mt-2 text-lg font-medium leading-6 text-gray-900">
-        <button className="inline-flex justify-center rounded-md border border-transparent bg-slate-100 p-1 text-base text-slate-900  shadow-sm sm:text-sm">
+        <button
+          style={{ fontFamily: 'Almarai, sans-serif' }}
+          className="inline-flex justify-center rounded-md border border-transparent bg-slate-100 p-1 text-sm text-slate-900  shadow-sm sm:text-sm"
+        >
           <a
+            style={{ fontFamily: 'Almarai, sans-serif' }}
             href={
               'https://surahquran.com/quran-search/search.php?search_word=' +
               solution
@@ -165,9 +215,7 @@ export const EndStatOpen = ({
             rel="noreferrer"
           >
             🕋&nbsp;&nbsp;&nbsp;تعرّف على مواضع ورود كلمة &nbsp;
-            <b>
-              <i>{solution}</i>
-            </b>
+            <i style={{ fontWeight: '700' }}>{solution}</i>
             &nbsp;في القران الكريم
           </a>
         </button>
@@ -205,8 +253,9 @@ export const EndStatOpen = ({
           </div>
           <div>
             <button
+              style={{ fontFamily: 'Almarai, sans-serif' }}
               type="button"
-              className="sm:text-bg mt-2 inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-semibold text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="sm:text-bg mt-2 inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               onClick={() => {
                 shareStatus(
                   solution,
