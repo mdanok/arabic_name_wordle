@@ -1,4 +1,4 @@
-import { ClockIcon, ShareIcon } from '@heroicons/react/outline'
+import { ClockIcon } from '@heroicons/react/outline'
 import { format } from 'date-fns'
 import Countdown from 'react-countdown'
 
@@ -9,7 +9,6 @@ import {
 } from '../../constants/settings'
 import {
   ARCHIVE_GAMEDATE_TEXT,
-  GUESS_DISTRIBUTION_TEXT,
   NEW_WORD_TEXT,
   SHARE_TEXT,
   STATISTICS_TITLE,
@@ -17,7 +16,6 @@ import {
 import { GameStats } from '../../lib/localStorage'
 import { getText, shareStatus } from '../../lib/share'
 import { solutionGameDate, tomorrow } from '../../lib/words'
-import { Histogram } from '../stats/Histogram'
 import { MigrationIntro } from '../stats/MigrationIntro'
 import { StatBar } from '../stats/StatBar'
 import { BaseModal } from './BaseModal'
@@ -97,7 +95,6 @@ export const EndStatOpen = ({
       ))}
     </div>
   ))
-  console.log(guessesob)
   if (gameStats.totalGames <= 0) {
     return (
       <BaseModal

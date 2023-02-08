@@ -23,55 +23,55 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
       </p>
 
       <div className="mb-1 mt-4 flex justify-center">
+        <Cell isCompleted={true} value="ك" />
+        <Cell value="ذ" isCompleted={true} />
+        <Cell value="ل" isCompleted={true} />
+        <Cell value="ك" isCompleted={true} />
         <Cell
-          isRevealing={true}
+          value="م"
           isCompleted={true}
-          value="ا"
           status="correct"
+          isRevealing={true}
         />
-        <Cell value="ب" isCompleted={true} />
-        <Cell value="ت" isCompleted={true} />
-        <Cell value="س" isCompleted={true} />
-        <Cell value="م" isCompleted={true} />
       </div>
       <p
         style={{ fontFamily: 'Almarai, sans-serif' }}
         className="text-sm text-gray-500 dark:text-gray-300"
       >
-        الحرف الألف موجود في الكلمة وفي المكان الصحيح.
+        الحرف الميم موجود في الكلمة وفي المكان الصحيح.
       </p>
 
       <div className="mb-1 mt-4 flex justify-center">
-        <Cell value="ي" isCompleted={true} />
-        <Cell value="ت" isCompleted={true} />
-        <Cell isCompleted={true} value="ح" />
         <Cell
-          value="د"
+          value="ت"
           isCompleted={true}
           status="present"
           isRevealing={true}
         />
-        <Cell value="ث" isCompleted={true} />
+        <Cell value="ا" isCompleted={true} />
+        <Cell isCompleted={true} value="ل" />
+        <Cell value="ل" isCompleted={true} />
+        <Cell value="ه" isCompleted={true} />
       </div>
       <p
         style={{ fontFamily: 'Almarai, sans-serif' }}
         className="text-sm text-gray-500 dark:text-gray-300"
       >
-        الحرف الدال موجود في الكلمة ولكن في المكان الخطأ.
+        الحرف التاء موجود في الكلمة ولكن في المكان الخطأ.
       </p>
 
       <div className="mb-1 mt-4 flex justify-center">
-        <Cell value="ج" isCompleted={true} />
         <Cell value="س" isCompleted={true} />
+        <Cell value="ب" isCompleted={true} />
         <Cell value="ي" isCompleted={true} />
-        <Cell isRevealing={true} isCompleted={true} value="م" status="absent" />
-        <Cell value="ة" isCompleted={true} />
+        <Cell isRevealing={true} isCompleted={true} value="ل" status="absent" />
+        <Cell value="ا" isCompleted={true} />
       </div>
       <p
         style={{ fontFamily: 'Almarai, sans-serif' }}
         className="text-sm text-gray-500 dark:text-gray-300"
       >
-        الحرف الميم ليس في الكلمة في أي مكان.
+        الحرف اللام ليس في الكلمة في أي مكان.
       </p>
 
       <p

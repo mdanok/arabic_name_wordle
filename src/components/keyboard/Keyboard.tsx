@@ -98,6 +98,7 @@ export const Keyboard = ({
           />
         ))}
       </div>
+
       <div className="flex justify-center">
         <Key
           width={65.4}

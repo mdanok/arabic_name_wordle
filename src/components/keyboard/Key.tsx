@@ -53,7 +53,7 @@ export const Key = ({
     width: `${width}px`,
     backgroundColor: `${bgcolor}`,
     color: `${color}`,
-    fontSize: '24px',
+    fontSize: '22px',
     fontWeight: 'bold',
     height: '58px',
   }

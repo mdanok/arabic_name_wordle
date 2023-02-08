@@ -10,12 +10,12 @@ import { AlertContainer } from './components/alerts/AlertContainer'
 import { Grid } from './components/grid/Grid'
 import { Keyboard } from './components/keyboard/Keyboard'
 import { DatePickerModal } from './components/modals/DatePickerModal'
+import { EndStatOpen } from './components/modals/EndStatOpen'
 import { HardModeModal } from './components/modals/HardModeModal'
 import { InfoModal } from './components/modals/InfoModal'
 import { MigrateStatsModal } from './components/modals/MigrateStatsModal'
 import { SettingsModal } from './components/modals/SettingsModal'
 import { StatsModal } from './components/modals/StatsModal'
-import { EndStatOpen } from './components/modals/StatsModalt'
 import { Navbar } from './components/navbar/Navbar'
 import {
   DATE_LOCALE,
