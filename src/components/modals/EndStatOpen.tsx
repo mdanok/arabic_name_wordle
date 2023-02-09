@@ -36,6 +36,7 @@ type Props = {
   isDarkMode: boolean
   isHighContrastMode: boolean
   numberOfGuessesMade: number
+  correctWord: string
 }
 
 export const EndStatOpen = ({
@@ -54,6 +55,7 @@ export const EndStatOpen = ({
   isDarkMode,
   isHighContrastMode,
   numberOfGuessesMade,
+  correctWord,
 }: Props) => {
   var guessesob = getText(
     solution,
@@ -178,6 +180,13 @@ export const EndStatOpen = ({
           style={{ fontFamily: 'Almarai, sans-serif' }}
           className="mb-2 text-sm text-gray-900 dark:text-gray-100"
         >
+          <div className="mb-1 rounded-md bg-rose-500 text-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="p-2">
+              <p className="text-center text-sm font-medium">
+                الكلمة كانت {correctWord}
+              </p>
+            </div>
+          </div>
           حظاً أوفر في المرة القادمة!
         </p>
       )}

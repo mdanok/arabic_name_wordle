@@ -98,9 +98,6 @@ function App() {
     }
     if (loaded.guesses.length === MAX_CHALLENGES && !gameWasWon) {
       setIsGameLost(true)
-      showErrorAlert(CORRECT_WORD_MESSAGE(solution), {
-        persist: true,
-      })
     }
     return loaded.guesses
   })
@@ -270,10 +267,6 @@ function App() {
           setStats(addStatsForCompletedGame(stats, guesses.length + 1))
         }
         setIsGameLost(true)
-        showErrorAlert(CORRECT_WORD_MESSAGE(solution), {
-          persist: true,
-          delayMs: REVEAL_TIME_MS * solution.length + 1,
-        })
       }
     }
   }
@@ -286,6 +279,8 @@ function App() {
           setIsStatsModalOpen={setIsStatsModalOpen}
           setIsDatePickerModalOpen={setIsDatePickerModalOpen}
           setIsSettingsModalOpen={setIsSettingsModalOpen}
+          isGameLost={isGameLost}
+          correctWord={solution}
         />
 
         {!isLatestGame && (
@@ -338,6 +333,7 @@ function App() {
             isDarkMode={isDarkMode}
             isHighContrastMode={isHighContrastMode}
             numberOfGuessesMade={guesses.length}
+            correctWord={solution}
           ></EndStatOpen>
           <InfoModal
             isOpen={isInfoModalOpen}

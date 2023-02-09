@@ -13,6 +13,8 @@ type Props = {
   setIsStatsModalOpen: (value: boolean) => void
   setIsDatePickerModalOpen: (value: boolean) => void
   setIsSettingsModalOpen: (value: boolean) => void
+  isGameLost: boolean
+  correctWord: string
 }
 
 export const Navbar = ({
@@ -20,22 +22,39 @@ export const Navbar = ({
   setIsStatsModalOpen,
   setIsDatePickerModalOpen,
   setIsSettingsModalOpen,
+  isGameLost,
+  correctWord,
 }: Props) => {
   return (
     <div
       style={{ width: '18rem' }}
-      className="mx-auto mt-2 mb-4 flex items-center"
+      className="mx-auto mt-1 mb-1 flex items-center"
     >
       <style>
         @import
         url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
       </style>
       <p
-        style={{ fontFamily: 'Amiri Quran, serif', fontSize: '1.50rem' }}
+        style={{ fontFamily: 'Amiri Quran, serif', fontSize: '1.40rem' }}
         className="grow dark:text-white"
       >
-        {GAME_TITLE}
+        <a href={window.location.href} target="_blank" rel="noreferrer">
+          {GAME_TITLE}
+        </a>
       </p>
+      {isGameLost && (
+        <div className="flex">
+          <p className="ml-16 grow dark:text-white">
+            <div className="pointer-events-auto left-1/2 z-20 mt-2 max-w-sm -translate-x-1/2 transform overflow-hidden rounded-lg bg-rose-500 text-white shadow-lg ring-1 ring-black ring-opacity-5">
+              <div className="p-2">
+                <p className="text-center text-sm font-medium">
+                  الكلمة كانت {correctWord}
+                </p>
+              </div>
+            </div>
+          </p>
+        </div>
+      )}
       <div className="flex">
         <CogIcon
           className="h-6 w-6 cursor-pointer dark:stroke-white"
@@ -53,12 +72,11 @@ export const Navbar = ({
         />
         {ENABLE_ARCHIVED_GAMES && (
           <CalendarIcon
-            className="ml-3 h-6 w-6 cursor-pointer dark:stroke-white"
+            className="h-6 w-6 cursor-pointer dark:stroke-white"
             onClick={() => setIsDatePickerModalOpen(true)}
           />
         )}
       </div>
-      <hr></hr>
     </div>
   )
 }

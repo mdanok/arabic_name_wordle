@@ -12,6 +12,7 @@ type Props = {
   solution: string
   guesses: string[]
   isRevealing?: boolean
+  isBackSpace?: boolean
 }
 
 export const Keyboard = ({
@@ -21,13 +22,14 @@ export const Keyboard = ({
   solution,
   guesses,
   isRevealing,
+  isBackSpace,
 }: Props) => {
   const charStatuses = getStatuses(solution, guesses)
 
   const onClick = (value: string) => {
-    if (value === '↵') {
+    if (value === 'Enter') {
       onEnter()
-    } else if (value === 'مسح') {
+    } else if (value === 'Backspace') {
       onDelete()
     } else {
       onChar(value)
@@ -104,8 +106,9 @@ export const Keyboard = ({
           width={65.4}
           color="white"
           bgcolor="rgb(220, 53, 69)"
-          value="مسح"
+          value="Backspace"
           onClick={onClick}
+          isBackSpace={true}
         >
           {DELETE_TEXT}
         </Key>
@@ -123,7 +126,7 @@ export const Keyboard = ({
           width={65.4}
           color="white"
           bgcolor="rgb(0, 123, 255)"
-          value="↵"
+          value="Enter"
           onClick={onClick}
         >
           {ENTER_TEXT}
