@@ -20,12 +20,12 @@ export const HardModeModal = ({ isOpen, handleClose }: Props) => {
         <Cell
           isRevealing={true}
           isCompleted={true}
-          value="ك"
+          value="ا"
           status="correct"
         />
-        <Cell value="ذ" isCompleted={true} />
-        <Cell value="ل" isCompleted={true} />
-        <Cell value="ك" isCompleted={true} />
+        <Cell value="ن" isCompleted={true} />
+        <Cell value="س" isCompleted={true} />
+        <Cell value="ا" isCompleted={true} />
         <Cell value="م" isCompleted={true} />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
@@ -33,46 +33,46 @@ export const HardModeModal = ({ isOpen, handleClose }: Props) => {
       </p>
 
       <div className="mb-1 mt-4 flex justify-center">
-        <Cell value="ت" isCompleted={true} />
+        <Cell value="ب" isCompleted={true} />
         <Cell value="ا" isCompleted={true} />
-        <Cell isCompleted={true} value="ل" />
+        <Cell isCompleted={true} value="س" />
         <Cell
           value="ل"
           isCompleted={true}
           status="present"
           isRevealing={true}
         />
-        <Cell value="ه" isCompleted={true} />
+        <Cell value="ة" isCompleted={true} />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
         يجب أن تستخدم حرف اللام في مكان ما.
       </p>
 
       <div className="mb-1 mt-4 flex justify-center">
-        <Cell value="س" isCompleted={true} />
-        <Cell value="ب" isCompleted={true} />
-        <Cell
-          value="ي"
-          isRevealing={true}
-          isCompleted={true}
-          status="correct"
-        />
-        <Cell
-          isRevealing={true}
-          isCompleted={true}
-          value="ل"
-          status="present"
-        />
+        <Cell value="ت" isCompleted={true} />
+        <Cell value="م" isCompleted={true} />
         <Cell
           value="ا"
           isRevealing={true}
           isCompleted={true}
           status="correct"
         />
+        <Cell
+          isRevealing={true}
+          isCompleted={true}
+          value="ر"
+          status="present"
+        />
+        <Cell
+          value="ه"
+          isRevealing={true}
+          isCompleted={true}
+          status="correct"
+        />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        يجب أن تستخدم حرف الياء في المربع الثالث، وحرف الالف في المربع الأخير،
-        وحرف اللام في مكان ما.
+        يجب أن تستخدم حرف الألف في المربع الثالث، وحرف الهاء في المربع الأخير،
+        وحرف الراء في مكان ما.
       </p>
     </BaseModal>
   )

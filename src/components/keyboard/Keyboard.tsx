@@ -49,11 +49,8 @@ export const Keyboard = ({
           (key.length === 1 && key !== 'ـ' && key >= 'ا' && key <= 'ي') ||
           key === 'ئ' ||
           key === 'ء' ||
-          key === 'أ' ||
           key === 'ء' ||
-          key === 'ؤ' ||
-          key === 'آ' ||
-          key === 'إ'
+          key === 'ؤ'
         ) {
           onChar(key)
         }
@@ -68,7 +65,7 @@ export const Keyboard = ({
   return (
     <div>
       <div className="mb-1 flex justify-center">
-        {['آ', 'أ', 'إ', 'ئ', 'ؤ', 'ء'].map((key) => (
+        {['ئ', 'ؤ', 'ء'].map((key) => (
           <Key
             value={key}
             key={key}

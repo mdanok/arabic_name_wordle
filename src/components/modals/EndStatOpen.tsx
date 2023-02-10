@@ -190,7 +190,7 @@ export const EndStatOpen = ({
           حظاً أوفر في المرة القادمة!
         </p>
       )}
-      <h3 className="mt-2 text-lg font-medium leading-6 text-gray-900">
+      {/*<h3 className="mt-2 text-lg font-medium leading-6 text-gray-900">
         <button
           style={{ fontFamily: 'Almarai, sans-serif' }}
           className="inline-flex justify-center rounded-md border border-transparent bg-slate-100 p-1 text-sm text-slate-900  shadow-sm sm:text-sm"
@@ -225,7 +225,7 @@ export const EndStatOpen = ({
             &nbsp;في القران الكريم
           </a>
         </button>
-      </h3>
+      </h3>*/}
       <div className="mt-5">
         <div>{final}</div>
       </div>

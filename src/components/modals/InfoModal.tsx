@@ -17,16 +17,15 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         style={{ fontFamily: 'Almarai, sans-serif' }}
         className="text-sm text-gray-500 dark:text-gray-300"
       >
-        خمِّن الكلمة <span style={{ fontWeight: '700' }}>القرآنية</span> في 6
-        محاولات. سيتغيّر لون المربعات بعد كل محاولة لإظهار مدى قرب تخمينك من
-        الكلمة.
+        خمِّن <span style={{ fontWeight: '700' }}>الأسم</span> في 6 محاولات.
+        سيتغيّر لون المربعات بعد كل محاولة لإظهار مدى قرب تخمينك من الكلمة.
       </p>
 
       <div className="mb-1 mt-4 flex justify-center">
-        <Cell isCompleted={true} value="ك" />
-        <Cell value="ذ" isCompleted={true} />
-        <Cell value="ل" isCompleted={true} />
-        <Cell value="ك" isCompleted={true} />
+        <Cell isCompleted={true} value="ا" />
+        <Cell value="ن" isCompleted={true} />
+        <Cell value="س" isCompleted={true} />
+        <Cell value="ا" isCompleted={true} />
         <Cell
           value="م"
           isCompleted={true}
@@ -48,9 +47,9 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
           status="present"
           isRevealing={true}
         />
-        <Cell value="ا" isCompleted={true} />
-        <Cell isCompleted={true} value="ل" />
-        <Cell value="ل" isCompleted={true} />
+        <Cell value="م" isCompleted={true} />
+        <Cell isCompleted={true} value="ا" />
+        <Cell value="ر" isCompleted={true} />
         <Cell value="ه" isCompleted={true} />
       </div>
       <p
@@ -61,11 +60,11 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
       </p>
 
       <div className="mb-1 mt-4 flex justify-center">
-        <Cell value="س" isCompleted={true} />
         <Cell value="ب" isCompleted={true} />
-        <Cell value="ي" isCompleted={true} />
-        <Cell isRevealing={true} isCompleted={true} value="ل" status="absent" />
         <Cell value="ا" isCompleted={true} />
+        <Cell value="س" isCompleted={true} />
+        <Cell isRevealing={true} isCompleted={true} value="ل" status="absent" />
+        <Cell value="ة" isCompleted={true} />
       </div>
       <p
         style={{ fontFamily: 'Almarai, sans-serif' }}
@@ -99,6 +98,13 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
       </p>
       <p
         style={{ fontFamily: 'Almarai, sans-serif' }}
+        className="mt-5 text-sm text-gray-500 dark:text-gray-300"
+      >
+        <b style={{ color: '#A7171A' }}>ملاحظة:</b> تم تحويل الـ <b>أ,آ,إ</b>{' '}
+        الى <b>ا</b>, في جميع الأسماء.
+      </p>
+      {/*<p
+        style={{ fontFamily: 'Almarai, sans-serif' }}
         className="mt-5 text-xs text-gray-500 dark:text-gray-300"
       >
         شرح الكلمات يعرضه{' '}
@@ -126,7 +132,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         >
           سورة قرآن
         </a>{' '}
-      </p>
+      </p>*/}
     </BaseModal>
   )
 }
