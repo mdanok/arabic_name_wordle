@@ -121,7 +121,7 @@ export const EndStatOpen = ({
         {isHardMode && isGameWon && '🥇'}
         {!isHardMode && isGameWon && '🥈'}
         {!isHardMode && isGameLost && (
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100">
+          <div className="mx-auto mb-1 flex h-12 w-12 items-center justify-center rounded-full bg-red-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -178,15 +178,15 @@ export const EndStatOpen = ({
       {!isHardMode && isGameLost && (
         <p
           style={{ fontFamily: 'Almarai, sans-serif' }}
-          className="mb-2 text-sm text-gray-900 dark:text-gray-100"
+          className="mb-2 mt-1 text-sm text-gray-900 dark:text-gray-100"
         >
-          <div className="mb-1 rounded-md bg-rose-500 text-white shadow-lg ring-1 ring-black ring-opacity-5">
+          {/*<div className="mb-1 rounded-md bg-rose-500 text-white ring-1 ring-black ring-opacity-5">
             <div className="p-2">
               <p className="text-center text-sm font-medium">
                 الكلمة كانت {correctWord}
               </p>
             </div>
-          </div>
+      </div>*/}
           حظاً أوفر في المرة القادمة!
         </p>
       )}

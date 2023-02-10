@@ -79,6 +79,7 @@ export const Key = ({
           viewBox="0 0 24 24"
           width="24"
           data-v-5e04d106=""
+          style={{ display: 'block', transform: 'scale(-1,1)' }}
         >
           <path
             fill="currentColor"

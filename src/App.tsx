@@ -4,7 +4,9 @@ import { ClockIcon } from '@heroicons/react/outline'
 import { format } from 'date-fns'
 import { default as GraphemeSplitter } from 'grapheme-splitter'
 import { useEffect, useState } from 'react'
+import Confetti from 'react-confetti'
 import Div100vh from 'react-div-100vh'
+import useWindowSize from 'react-use/lib/useWindowSize'
 
 import { AlertContainer } from './components/alerts/AlertContainer'
 import { Grid } from './components/grid/Grid'
@@ -26,7 +28,6 @@ import {
   WELCOME_INFO_MODAL_MS,
 } from './constants/settings'
 import {
-  CORRECT_WORD_MESSAGE,
   DISCOURAGE_INAPP_BROWSER_TEXT,
   GAME_COPIED_MESSAGE,
   HARD_MODE_ALERT_MESSAGE,
@@ -76,6 +77,7 @@ function App() {
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false)
   const [currentRowClass, setCurrentRowClass] = useState('')
   const [isGameLost, setIsGameLost] = useState(false)
+  const { width, height } = useWindowSize()
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem('theme')
       ? localStorage.getItem('theme') === 'dark'
@@ -282,7 +284,14 @@ function App() {
           isGameLost={isGameLost}
           correctWord={solution}
         />
-
+        {isGameWon && (
+          <Confetti
+            width={width}
+            recycle={false}
+            numberOfPieces={400}
+            height={height}
+          />
+        )}
         {!isLatestGame && (
           <div className="flex items-center justify-center">
             <ClockIcon className="h-6 w-6 stroke-gray-600 dark:stroke-gray-300" />

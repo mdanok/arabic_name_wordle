@@ -45,7 +45,7 @@ export const Navbar = ({
       {isGameLost && (
         <div className="flex">
           <p className="ml-16 grow dark:text-white">
-            <div className="pointer-events-auto left-1/2 z-20 mt-2 max-w-sm -translate-x-1/2 transform overflow-hidden rounded-lg bg-rose-500 text-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="pointer-events-auto left-1/2 z-20 mt-2 max-w-sm -translate-x-1/2 transform overflow-hidden rounded-lg bg-rose-500 text-white ring-1 ring-black ring-opacity-5">
               <div className="p-2">
                 <p className="text-center text-sm font-medium">
                   الكلمة كانت {correctWord}
